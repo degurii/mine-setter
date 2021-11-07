@@ -1,5 +1,3 @@
-const $board = document.querySelector('#G64');
-
 const FaceObserver = new MutationObserver(mutation => {
   const target = mutation[0].target;
   const lose = mutation.some(({ target }) =>
@@ -20,7 +18,9 @@ const BoardObserver = new MutationObserver(() => {
     });
   }
 });
-
-BoardObserver.observe($board, {
-  childList: true,
+window.addEventListener('load', () => {
+  const $board = document.querySelector('#G64');
+  BoardObserver.observe($board, {
+    childList: true,
+  });
 });
