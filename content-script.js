@@ -1,9 +1,16 @@
 const FaceObserver = new MutationObserver(mutation => {
-  const target = mutation[0].target;
-  const lose = mutation.some(({ target }) =>
+  const isPressing = mutation.some(({ target }) =>
+    target.classList.contains('hd_top-area-face-pressed'),
+  );
+  if (isPressing) {
+    return;
+  }
+
+  const isLost = mutation.some(({ target }) =>
     target.classList.contains('hd_top-area-face-lose'),
   );
-  if (lose) {
+  if (isLost) {
+    const { target } = mutation[0];
     target.click();
   }
 });
