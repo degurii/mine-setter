@@ -3,7 +3,6 @@
   "description": "Some rest for your fingers.",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["activeTab"],
   "content_scripts": [
     {
       "matches": [
